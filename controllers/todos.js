@@ -1,6 +1,7 @@
 const Todo = require('../models/Todo')
 
 module.exports = {
+
     getTodos: async (req,res)=>{
         console.log(req.user)
         try{
