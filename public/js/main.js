@@ -3,6 +3,7 @@ const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 const colorSwitchBtn = document.getElementById('color-switcher')
 const quote = document.getElementById('quote')
+const checkBox = document.querySelectorAll('input.myCheck')
 
 async function updateQuote() {
     // Fetch a random quote from the Quotable API
@@ -44,7 +45,22 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
+Array.from(checkBox).forEach((el)=>{
+    el.addEventListener('click', markComplete)
+})
+Array.from(checkBox).forEach((el)=>{
+    el.addEventListener('click', markIncomplete)
+})
+
+Array.from(checkBox).forEach((el)=>{
+    el.addEventListener('click', ()=>{
+        console.log('nice clicking!')
+    })
+})
+
+
 async function deleteTodo(){
+
     const todoId = this.parentNode.dataset.id
     try{
         const response = await fetch('todos/deleteTodo', {
